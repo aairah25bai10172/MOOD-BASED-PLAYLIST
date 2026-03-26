@@ -1,5 +1,5 @@
 # MOOD-BASED-PLAYLIST
-A beginner-friendly AI/ML project that uses Lexicon-based Sentiment Analysis to recommend Bollywood songs based on user journal entries. Features a Command Line Interface (CLI) for automated evaluation.
+A simple Python tool that asks how your day was and suggests Bollywood songs based on your mood. It uses a basic word-counting method to figure out if you're happy, sad, or just chilling.
 # Bollywood Mood-to-Playlist Recommender (AI/ML)
 
 ## 📌 Project Overview
