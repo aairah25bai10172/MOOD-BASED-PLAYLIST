@@ -6,7 +6,7 @@
 
 > A lightweight AI-powered command-line application that detects user mood from text and recommends a personalized playlist
 
-**Project Status:** ✅ Complete & Functional
+**Student reg no :** 25BAI10172
 **Student Name:** Aairah Parvaiz
 **Institution:** VIT Bhopal
 
