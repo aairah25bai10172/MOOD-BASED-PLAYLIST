@@ -16,30 +16,3 @@ The goal of this project is to demonstrate an end-to-end pipeline:
 Ensure you have **Python 3.x** installed on your system. You can check this by running:
 ```bash
 python --version
-
-Example Usage:
-The program will ask: "How is your heart today? Describe your day in a sentence:"
-
-Input: "I had a very long day and I just want to relax and find some sukoon."
-
-Output: Detected Mood: Calm (Followed by the Calm playlist).
-
-🧠 How it Works
-The project utilizes a get_mood_score function that:
-
-Tokenizes user input into individual lowercase words.
-
-Scans for matches against predefined dictionaries for Happy, Sad, and Calm moods.
-
-Calculates a Score:
-
-Positive words increase the score.
-
-Negative words decrease the score.
-
-Logic Branching: If the score is balanced or zero, it searches for "Calm" identifiers before defaulting to "Neutral."
-
-📂 Project Structure
-main.py: The primary script containing the sentiment logic and song database.
-
-README.md: Project documentation and setup instructions.
