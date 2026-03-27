@@ -1,1 +1,2 @@
 # No external dependencies required
+# This project runs on standard Python (3.x)
