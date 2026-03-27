@@ -2,9 +2,9 @@
 
 ---
 
-# 🎧 **Mood-Based Playlist Recommender Project**
+# 🎵 **MOOD BASED PLAYLIST (CLI AI Project)**
 
-> A smart music recommendation system that suggests playlists based on user mood using AI & data-driven logic
+> A lightweight AI-powered command-line application that detects user mood from text and recommends a personalized playlist
 
 **Project Status:** ✅ Complete & Functional
 **Student Name:** Aairah Parvaiz
@@ -14,12 +14,12 @@
 
 ## 🎯 Project Objective
 
-To build an intelligent system that:
+To build a simple yet effective system that:
 
-* Detects or accepts user mood input 😊😢😡😌
-* Recommends songs/playlists based on emotional state
-* Uses data processing & simple ML techniques
-* Enhances user experience through personalization
+* Accepts user input describing their feelings
+* Uses **keyword-based sentiment analysis** to detect mood
+* Classifies mood into categories (Happy, Sad, Calm, Neutral)
+* Recommends a curated playlist accordingly
 
 ---
 
@@ -27,19 +27,19 @@ To build an intelligent system that:
 
 ### What is This Project?
 
-This project is a **mood-based music recommendation system** that:
+This project is a **CLI-based mood detection and music recommendation system** that:
 
-* Takes user mood as input (manual or predicted)
-* Maps mood to curated playlists
-* Uses data analysis + logic to recommend songs
-* Can be extended with APIs like Spotify or YouTube
+* Simulates basic AI using keyword scoring
+* Processes natural language input
+* Maps emotions to curated Bollywood playlists
+* Provides an engaging and interactive user experience
 
 ### Why This Project?
 
-✅ Combines **AI + real-world usability**
-✅ Demonstrates **recommendation system concepts**
-✅ Shows **data handling and personalization**
-✅ Fun + practical project for users
+✅ Demonstrates **core AI/NLP concepts (sentiment analysis)**
+✅ Beginner-friendly **rule-based recommendation system**
+✅ Combines **logic + creativity (music + emotion)**
+✅ Runs entirely in terminal (no heavy setup)
 
 ---
 
@@ -47,136 +47,107 @@ This project is a **mood-based music recommendation system** that:
 
 ### Core Features:
 
-* 🎭 Mood input (Happy, Sad, Angry, Relaxed, etc.)
-* 🎵 Playlist recommendation based on mood
-* 📊 Data processing using Pandas
-* 🧠 Basic recommendation logic
-* 💻 Clean UI (CLI or Web-based)
+* 🎭 Mood detection from user text input
+* 🧠 Keyword-based sentiment scoring algorithm
+* 🎵 Curated playlists for each mood
+* 💻 Simple CLI interaction
+* 🌐 Multilingual touch (Hindi + Urdu messages)
 
-### Advanced Features:
+### Supported Moods:
 
-* 🤖 Mood prediction (future scope - ML/NLP)
-* 🎧 Integration with Spotify API
-* 📈 User preference learning
-* 💾 Playlist saving/export
-* 🌐 Web app interface
+* 😊 Happy
+* 😢 Sad
+* 😌 Calm
+* 😐 Neutral
 
 ---
 
 ## 🔧 Technology Stack
 
-| Technology                    | Purpose              |
-| ----------------------------- | -------------------- |
-| **Python**                    | Core programming     |
-| **Pandas**                    | Data handling        |
-| **NumPy**                     | Numerical operations |
-| **Scikit-learn**              | ML (optional)        |
-| **Flask / Streamlit**         | Web interface        |
-| **Spotify API / YouTube API** | Music data           |
-| **Jupyter Notebook**          | Development          |
+| Technology          | Purpose          |
+| ------------------- | ---------------- |
+| **Python**          | Core programming |
+| **Basic NLP Logic** | Mood detection   |
+| **CLI (Terminal)**  | User interface   |
 
 ---
 
 ## 📦 Installation
 
-### Step 1: Clone Project
+### Step 1: Save the Code
+
+Save the file as:
 
 ```bash
-cd Mood-Playlist-Recommender
+mood_music_finder.py
 ```
 
-### Step 2: Install Dependencies
+### Step 2: Run the Program
 
 ```bash
-pip install pandas numpy scikit-learn flask streamlit requests
-```
-
-### Step 3: Run Project
-
-**Option A - Python Script**
-
-```bash
-python main.py
-```
-
-**Option B - Streamlit App**
-
-```bash
-streamlit run app.py
-```
-
----
-
-## 📁 Project Structure
-
-```
-Mood-Playlist-Recommender/
-│
-├── README.md
-├── requirements.txt
-│
-├── data/
-│   ├── songs_dataset.csv
-│   └── mood_mapping.csv
-│
-├── src/
-│   ├── recommender.py
-│   ├── mood_detector.py
-│   └── utils.py
-│
-├── app/
-│   └── app.py
-│
-└── notebooks/
-    └── analysis.ipynb
+python mood_music_finder.py
 ```
 
 ---
 
 ## 🚀 Usage Guide
 
-### Basic Usage:
+### Example Interaction:
 
-```python
-from recommender import recommend_playlist
+```
+--- 🎵 Mood Music Finder 🎵 ---
+How is your heart today? Describe your day in a sentence:
 
-mood = input("Enter your mood: ")
-playlist = recommend_playlist(mood)
+> I feel awesome and excited today!
 
-print("Recommended Songs:")
-for song in playlist:
-    print(song)
+[AI Analysis Result]
+Detected Mood: Happy
+Here is your curated playlist:
+----------------------------------------
+1. Kar Gayi Chull - Kapoor & Sons
+2. Mauja Hi Mauja - Jab We Met
+...
+----------------------------------------
 ```
 
 ---
 
 ## 🧠 Algorithm & Pseudocode
 
-### Main Algorithm:
+### Mood Detection Algorithm
 
 ```
-ALGORITHM MoodPlaylistRecommender(mood_input)
+ALGORITHM GetMoodScore(text)
 
-INPUT: mood_input (user mood)
+INPUT: user text
 
-OUTPUT: playlist of recommended songs
+OUTPUT: mood category
 
 BEGIN
-    DEFINE mood_categories = [Happy, Sad, Angry, Relaxed]
+    CONVERT text to lowercase
 
-    IF mood_input NOT IN mood_categories THEN
-        RETURN "Invalid mood"
-    END IF
+    DEFINE happy_keywords
+    DEFINE sad_keywords
+    DEFINE calm_keywords
 
-    LOAD dataset
+    score ← 0
 
-    FILTER songs WHERE mood == mood_input
+    FOR each word IN text DO
+        IF word IN happy_keywords THEN
+            score ← score + 1
+        ELSE IF word IN sad_keywords THEN
+            score ← score - 1
+        END IF
+    END FOR
 
-    SORT songs by popularity OR relevance
-
-    SELECT top N songs
-
-    RETURN playlist
+    IF score > 0 THEN
+        RETURN "Happy"
+    ELSE IF score < 0 THEN
+        RETURN "Sad"
+    ELSE IF calm_keywords found in text THEN
+        RETURN "Calm"
+    ELSE
+        RETURN "Neutral"
 END
 ```
 
@@ -185,36 +156,39 @@ END
 ## 📊 Data Flow
 
 ```
-User Input (Mood)
+User Input (Text)
         ↓
-Mood Processing
+Text Preprocessing (Lowercase)
         ↓
-Dataset Filtering
+Keyword Matching
         ↓
-Recommendation Logic
+Score Calculation
         ↓
-Playlist Output 🎧
+Mood Classification
+        ↓
+Playlist Recommendation 🎵
 ```
 
 ---
 
-## 🔧 Key Modules
+## 🔧 Key Functions
 
-### 1. Recommender Module
+### 1. Mood Detection Function
 
 ```python
-def recommend_playlist(mood):
+def get_mood_score(text):
     """
-    Returns playlist based on mood
+    Detects mood based on keyword scoring
+    Returns: Happy / Sad / Calm / Neutral
     """
 ```
 
-### 2. Mood Detection Module (Optional AI)
+### 2. Main Execution Function
 
 ```python
-def detect_mood(text):
+def main():
     """
-    Detect mood using NLP (future enhancement)
+    Handles user interaction and displays playlist
     """
 ```
 
@@ -222,59 +196,60 @@ def detect_mood(text):
 
 ## 📈 Results & Output
 
-* 🎵 Personalized playlists
-* ⚡ Fast recommendation time
-* 📊 Accurate mood-song mapping
-* 😊 Improved user engagement
+* ⚡ Instant mood detection
+* 🎵 Personalized playlist recommendations
+* 🧠 Logical classification using simple AI rules
+* 😊 Engaging user experience
 
 ---
 
 ## 🎓 Learning Outcomes
 
-### 1. Data Handling
+### 1. AI & NLP Basics
 
-* Working with datasets
-* Filtering and transformations
+* Keyword-based sentiment analysis
+* Text preprocessing
+* Rule-based classification
 
-### 2. Recommendation Systems
+### 2. Python Programming
 
-* Rule-based filtering
-* Personalization logic
+* Functions & control flow
+* Dictionaries & lists
+* Input/output handling
 
-### 3. AI Concepts
+### 3. Problem Solving
 
-* Mood detection (basic NLP)
-* Feature mapping
+* Mapping emotions to actions
+* Designing simple recommendation logic
 
-### 4. Development Skills
+### 4. Software Development
 
-* Modular coding
-* Project structuring
-* Debugging
+* Clean code structure
+* User interaction design
 
 ---
 
 ## 🚀 Future Enhancements
 
-* 🤖 AI mood detection using NLP (text/voice)
-* 🎧 Spotify integration (real-time playlists)
-* 📱 Mobile app version
-* 🧠 Deep learning recommendation system
-* 🌍 Multi-language support
+* 🤖 Upgrade to ML-based sentiment analysis (Naive Bayes / NLP models)
+* 🎧 Spotify / YouTube API integration
+* 🌐 Web version using Flask or Streamlit
+* 🎙️ Voice input for mood detection
+* 🧠 Emotion intensity scoring
 
 ---
 
 ## 👨‍💻 Contributors
 
 * **Aairah Parvaiz** – Developer
-* **Mentor:** Pramod Kumar Sir
+* **Mentor:** Pramod Kumar Bhat Sir
 
 ---
 
 ## 🙏 Acknowledgments
 
-* Open-source libraries
-* Music APIs
+* Open-source Python community
+* Inspiration from real-world music apps
 * VIT Bhopal faculty support
 
 ---
@@ -288,15 +263,15 @@ This project is for educational purposes.
 ## 📞 Contact
 
 **Aairah Parvaiz**
-VIT Bhopal
-CSE Student
+CSE Student, VIT Bhopal
 
 ---
 
 <div align="center">
 
-### 🎶 Keep vibing with the right mood! 🎶
+### 🎶 Let your mood choose your music 🎶
 
-**"Music understands what words cannot."**
+**"Sometimes, the right song understands you better than words."**
 
 </div>
+
